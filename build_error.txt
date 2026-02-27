@@ -1,0 +1,13 @@
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+F:\Git\windows-fan-controller\Program.cs(9,17): error CS0017: Program has more than one entry point defined. Compile with /main to specify the type that contains the entry point. [F:\Git\windows-fan-controller\FanController.csproj]
+F:\Git\windows-fan-controller\Form1.cs(15,16): warning CS8618: Non-nullable field '_computer' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the field as nullable. [F:\Git\windows-fan-controller\FanController.csproj]
+
+Build FAILED.
+
+F:\Git\windows-fan-controller\Form1.cs(15,16): warning CS8618: Non-nullable field '_computer' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the field as nullable. [F:\Git\windows-fan-controller\FanController.csproj]
+F:\Git\windows-fan-controller\Program.cs(9,17): error CS0017: Program has more than one entry point defined. Compile with /main to specify the type that contains the entry point. [F:\Git\windows-fan-controller\FanController.csproj]
+    1 Warning(s)
+    1 Error(s)
+
+Time Elapsed 00:00:01.04
