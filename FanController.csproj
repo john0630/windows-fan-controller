@@ -7,6 +7,8 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <ApplicationManifest>app.manifest</ApplicationManifest>
+    <AssemblyName>Laptop Fan Controller</AssemblyName>
+    <Title>Laptop Fan Controller</Title>
   </PropertyGroup>
 
   <ItemGroup>

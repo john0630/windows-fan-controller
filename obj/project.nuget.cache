@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "UNd3pPe7gIc=",
+  "dgSpecHash": "2EmIXzawhUM=",
   "success": true,
   "projectFilePath": "F:\\Git\\windows-fan-controller\\FanController.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "C:\\Users\\bc_ko\\.nuget\\packages\\diskinfotoolkit\\1.1.2\\diskinfotoolkit.1.1.2.nupkg.sha512",
     "C:\\Users\\bc_ko\\.nuget\\packages\\hidsharp\\2.6.4\\hidsharp.2.6.4.nupkg.sha512",
     "C:\\Users\\bc_ko\\.nuget\\packages\\librehardwaremonitorlib\\0.9.6\\librehardwaremonitorlib.0.9.6.nupkg.sha512",
+    "C:\\Users\\bc_ko\\.nuget\\packages\\microsoft.net.illink.tasks\\10.0.3\\microsoft.net.illink.tasks.10.0.3.nupkg.sha512",
     "C:\\Users\\bc_ko\\.nuget\\packages\\mono.posix.netstandard\\1.0.0\\mono.posix.netstandard.1.0.0.nupkg.sha512",
     "C:\\Users\\bc_ko\\.nuget\\packages\\ramspdtoolkit-ndd\\1.4.2\\ramspdtoolkit-ndd.1.4.2.nupkg.sha512",
     "C:\\Users\\bc_ko\\.nuget\\packages\\runtime.android-arm.runtime.native.system.io.ports\\10.0.3\\runtime.android-arm.runtime.native.system.io.ports.10.0.3.nupkg.sha512",
@@ -29,7 +30,10 @@
     "C:\\Users\\bc_ko\\.nuget\\packages\\runtime.osx-x64.runtime.native.system.io.ports\\10.0.3\\runtime.osx-x64.runtime.native.system.io.ports.10.0.3.nupkg.sha512",
     "C:\\Users\\bc_ko\\.nuget\\packages\\system.io.filesystem.accesscontrol\\5.0.0\\system.io.filesystem.accesscontrol.5.0.0.nupkg.sha512",
     "C:\\Users\\bc_ko\\.nuget\\packages\\system.io.ports\\10.0.3\\system.io.ports.10.0.3.nupkg.sha512",
-    "C:\\Users\\bc_ko\\.nuget\\packages\\system.management\\10.0.3\\system.management.10.0.3.nupkg.sha512"
+    "C:\\Users\\bc_ko\\.nuget\\packages\\system.management\\10.0.3\\system.management.10.0.3.nupkg.sha512",
+    "C:\\Users\\bc_ko\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\10.0.3\\microsoft.netcore.app.runtime.win-x64.10.0.3.nupkg.sha512",
+    "C:\\Users\\bc_ko\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\10.0.3\\microsoft.windowsdesktop.app.runtime.win-x64.10.0.3.nupkg.sha512",
+    "C:\\Users\\bc_ko\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\10.0.3\\microsoft.aspnetcore.app.runtime.win-x64.10.0.3.nupkg.sha512"
   ],
   "logs": []
 }
