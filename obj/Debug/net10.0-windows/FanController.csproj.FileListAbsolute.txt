@@ -1,8 +1,3 @@
-F:\Git\windows-fan-controller\bin\Debug\net10.0-windows\FanController.exe
-F:\Git\windows-fan-controller\bin\Debug\net10.0-windows\FanController.deps.json
-F:\Git\windows-fan-controller\bin\Debug\net10.0-windows\FanController.runtimeconfig.json
-F:\Git\windows-fan-controller\bin\Debug\net10.0-windows\FanController.dll
-F:\Git\windows-fan-controller\bin\Debug\net10.0-windows\FanController.pdb
 F:\Git\windows-fan-controller\bin\Debug\net10.0-windows\BlackSharp.Core.dll
 F:\Git\windows-fan-controller\bin\Debug\net10.0-windows\DiskInfoToolkit.dll
 F:\Git\windows-fan-controller\bin\Debug\net10.0-windows\HidSharp.dll
@@ -55,9 +50,14 @@ F:\Git\windows-fan-controller\obj\Debug\net10.0-windows\FanController.AssemblyIn
 F:\Git\windows-fan-controller\obj\Debug\net10.0-windows\FanController.AssemblyInfo.cs
 F:\Git\windows-fan-controller\obj\Debug\net10.0-windows\FanController.csproj.CoreCompileInputs.cache
 F:\Git\windows-fan-controller\obj\Debug\net10.0-windows\FanContr.440777A2.Up2Date
-F:\Git\windows-fan-controller\obj\Debug\net10.0-windows\FanController.dll
-F:\Git\windows-fan-controller\obj\Debug\net10.0-windows\refint\FanController.dll
-F:\Git\windows-fan-controller\obj\Debug\net10.0-windows\FanController.pdb
 F:\Git\windows-fan-controller\obj\Debug\net10.0-windows\FanController.genruntimeconfig.cache
-F:\Git\windows-fan-controller\obj\Debug\net10.0-windows\ref\FanController.dll
 F:\Git\windows-fan-controller\obj\Debug\net10.0-windows\FanController.sourcelink.json
+F:\Git\windows-fan-controller\bin\Debug\net10.0-windows\Laptop Fan Controller.exe
+F:\Git\windows-fan-controller\bin\Debug\net10.0-windows\Laptop Fan Controller.deps.json
+F:\Git\windows-fan-controller\bin\Debug\net10.0-windows\Laptop Fan Controller.runtimeconfig.json
+F:\Git\windows-fan-controller\bin\Debug\net10.0-windows\Laptop Fan Controller.dll
+F:\Git\windows-fan-controller\bin\Debug\net10.0-windows\Laptop Fan Controller.pdb
+F:\Git\windows-fan-controller\obj\Debug\net10.0-windows\Laptop Fan Controller.dll
+F:\Git\windows-fan-controller\obj\Debug\net10.0-windows\refint\Laptop Fan Controller.dll
+F:\Git\windows-fan-controller\obj\Debug\net10.0-windows\Laptop Fan Controller.pdb
+F:\Git\windows-fan-controller\obj\Debug\net10.0-windows\ref\Laptop Fan Controller.dll

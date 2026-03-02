@@ -10,12 +10,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("FanController")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("Laptop Fan Controller")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3971ba4d85526145aa73193459121eecd3fa6d8c")]
-[assembly: System.Reflection.AssemblyProductAttribute("FanController")]
-[assembly: System.Reflection.AssemblyTitleAttribute("FanController")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+765f8178d476a775e3d44469a81a0783c02d6160")]
+[assembly: System.Reflection.AssemblyProductAttribute("Laptop Fan Controller")]
+[assembly: System.Reflection.AssemblyTitleAttribute("Laptop Fan Controller")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 [assembly: System.Runtime.Versioning.TargetPlatformAttribute("Windows7.0")]
 [assembly: System.Runtime.Versioning.SupportedOSPlatformAttribute("Windows7.0")]

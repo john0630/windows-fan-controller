@@ -11,11 +11,19 @@ namespace FanController
     {
         private Computer _computer;
         private List<ISensor> _fanControls;
+        private Dictionary<string, float> _minValues;
+        private Dictionary<string, float> _maxValues;
+
+
+        private HashSet<string> _collapsedGroups;
 
         public Form1()
         {
             InitializeComponent();
             _fanControls = new List<ISensor>();
+            _minValues = new Dictionary<string, float>();
+            _maxValues = new Dictionary<string, float>();
+            _collapsedGroups = new HashSet<string>();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -93,33 +101,79 @@ namespace FanController
 
         private void ProcessHardware(IHardware hardware)
         {
-            // Add hardware as a category-like item
-            ListViewItem hItem = new ListViewItem(hardware.Name);
-            hItem.SubItems.Add(hardware.HardwareType.ToString());
-            hItem.ForeColor = Color.LightSkyBlue;
-            hItem.Font = new Font(lstSensors.Font, FontStyle.Bold);
-            lstSensors.Items.Add(hItem);
+            string rawGroupKey = $"{hardware.HardwareType}:{hardware.Name}";
+            bool isExpanded = !_collapsedGroups.Contains(rawGroupKey);
+            string groupNameText = (isExpanded ? "▼ " : "▶ ") + hardware.HardwareType + ": " + hardware.Name;
+            
+            ListViewItem headerItem = new ListViewItem(groupNameText);
+            headerItem.Font = new Font(lstSensors.Font, FontStyle.Bold);
+            headerItem.ForeColor = Color.FromArgb(122, 206, 250); // Accessible bright cyan/blue #7acefa
+            headerItem.BackColor = Color.FromArgb(60, 60, 65);
+            headerItem.SubItems.Add("");
+            headerItem.SubItems.Add("");
+            headerItem.SubItems.Add("");
+            headerItem.SubItems.Add("");
+            headerItem.UseItemStyleForSubItems = true;
+            headerItem.Tag = rawGroupKey; // Identifies this as a header row and stores the key
+            lstSensors.Items.Add(headerItem);
 
             foreach (ISensor sensor in hardware.Sensors)
             {
-                if (sensor.SensorType == SensorType.Temperature || 
-                    sensor.SensorType == SensorType.Fan || 
-                    sensor.SensorType == SensorType.Control)
+                ListViewItem sItem = new ListViewItem("    • " + sensor.Name);
+                string val = "N/A";
+                string minVal = "N/A";
+                string maxVal = "N/A";
+
+                if (sensor.Value.HasValue)
                 {
-                    ListViewItem sItem = new ListViewItem("  • " + sensor.Name);
-                    string val = sensor.Value.HasValue ? Math.Round(sensor.Value.Value, 1).ToString() : "N/A";
+                    float v = sensor.Value.Value;
+                    string id = sensor.Identifier.ToString();
+
+                    if (!_minValues.ContainsKey(id) || v < _minValues[id])
+                        _minValues[id] = v;
                     
-                    if (sensor.SensorType == SensorType.Temperature) val += " °C";
-                    else if (sensor.SensorType == SensorType.Fan) val += " RPM";
-                    else if (sensor.SensorType == SensorType.Control) val += " %";
+                    if (!_maxValues.ContainsKey(id) || v > _maxValues[id])
+                        _maxValues[id] = v;
 
-                    sItem.SubItems.Add(val);
+                    val = Math.Round(v, 1).ToString();
+                    minVal = Math.Round(_minValues[id], 1).ToString();
+                    maxVal = Math.Round(_maxValues[id], 1).ToString();
+                }
+                
+                string unit = "";
+                switch (sensor.SensorType)
+                {
+                    case SensorType.Temperature: unit = " °C"; break;
+                    case SensorType.Fan: unit = " RPM"; break;
+                    case SensorType.Control:
+                    case SensorType.Load: unit = " %"; break;
+                    case SensorType.Voltage: unit = " V"; break;
+                    case SensorType.Power: unit = " W"; break;
+                    case SensorType.Data: unit = " GB"; break;
+                    case SensorType.Energy: unit = " mWh"; break;
+                    case SensorType.Throughput: unit = " B/s"; break;
+                }
+
+                if (val != "N/A") val += unit;
+                if (minVal != "N/A")
+                {
+                    minVal += unit;
+                    maxVal += unit;
+                }
+
+                sItem.SubItems.Add(sensor.SensorType.ToString());
+                sItem.SubItems.Add(val);
+                sItem.SubItems.Add(minVal);
+                sItem.SubItems.Add(maxVal);
+                
+                if (isExpanded)
+                {
                     lstSensors.Items.Add(sItem);
+                }
 
-                    if (sensor.SensorType == SensorType.Control)
-                    {
-                        _fanControls.Add(sensor);
-                    }
+                if (sensor.SensorType == SensorType.Control)
+                {
+                    _fanControls.Add(sensor);
                 }
             }
 
@@ -221,6 +275,23 @@ namespace FanController
         private void BtnRefresh_Click(object sender, EventArgs e)
         {
             RefreshSensors();
+        }
+
+        private void LstSensors_MouseDown(object sender, MouseEventArgs e)
+        {
+            ListViewHitTestInfo info = lstSensors.HitTest(e.X, e.Y);
+            if (info.Item != null && info.Item.Tag is string groupKey)
+            {
+                if (_collapsedGroups.Contains(groupKey))
+                {
+                    _collapsedGroups.Remove(groupKey);
+                }
+                else
+                {
+                    _collapsedGroups.Add(groupKey);
+                }
+                RefreshSensors();
+            }
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)

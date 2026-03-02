@@ -23,7 +23,10 @@ partial class Form1
         btnRefresh = new Button();
         lstSensors = new ListView();
         colName = new ColumnHeader();
+        colType = new ColumnHeader();
         colValue = new ColumnHeader();
+        colMin = new ColumnHeader();
+        colMax = new ColumnHeader();
         btnAuto = new Button();
 
         ((System.ComponentModel.ISupportInitialize)trackBarSpeed).BeginInit();
@@ -42,31 +45,44 @@ partial class Form1
         lstSensors.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
         lstSensors.BackColor = Color.FromArgb(45, 45, 48);
         lstSensors.BorderStyle = BorderStyle.None;
-        lstSensors.Columns.AddRange(new ColumnHeader[] { colName, colValue });
+        lstSensors.Columns.AddRange(new ColumnHeader[] { colName, colType, colValue, colMin, colMax });
         lstSensors.Font = new Font("Segoe UI", 10F);
         lstSensors.ForeColor = Color.White;
         lstSensors.FullRowSelect = true;
         lstSensors.Location = new Point(25, 70);
         lstSensors.Name = "lstSensors";
-        lstSensors.Size = new Size(500, 180);
+        lstSensors.Size = new Size(650, 180);
         lstSensors.TabIndex = 2;
         lstSensors.UseCompatibleStateImageBehavior = false;
         lstSensors.View = View.Details;
+        lstSensors.MouseDown += LstSensors_MouseDown;
 
         // colName
         colName.Text = "Sensor / Component";
-        colName.Width = 300;
+        colName.Width = 260;
+
+        // colType
+        colType.Text = "Type";
+        colType.Width = 90;
 
         // colValue
         colValue.Text = "Value";
-        colValue.Width = 180;
+        colValue.Width = 100;
+
+        // colMin
+        colMin.Text = "Min";
+        colMin.Width = 100;
+
+        // colMax
+        colMax.Text = "Max";
+        colMax.Width = 100;
 
         // trackBarSpeed
         trackBarSpeed.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
         trackBarSpeed.Location = new Point(25, 270);
         trackBarSpeed.Maximum = 100;
         trackBarSpeed.Name = "trackBarSpeed";
-        trackBarSpeed.Size = new Size(400, 45);
+        trackBarSpeed.Size = new Size(550, 45);
         trackBarSpeed.TabIndex = 3;
         trackBarSpeed.TickFrequency = 10;
         trackBarSpeed.Scroll += TrackBarSpeed_Scroll;
@@ -76,7 +92,7 @@ partial class Form1
         lblSpeedVal.AutoSize = true;
         lblSpeedVal.Font = new Font("Segoe UI", 12F);
         lblSpeedVal.ForeColor = Color.White;
-        lblSpeedVal.Location = new Point(440, 270);
+        lblSpeedVal.Location = new Point(590, 270);
         lblSpeedVal.Name = "lblSpeedVal";
         lblSpeedVal.Size = new Size(32, 21);
         lblSpeedVal.Text = "0%";
@@ -118,7 +134,7 @@ partial class Form1
         btnRefresh.FlatStyle = FlatStyle.Flat;
         btnRefresh.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
         btnRefresh.ForeColor = Color.White;
-        btnRefresh.Location = new Point(425, 330);
+        btnRefresh.Location = new Point(575, 330);
         btnRefresh.Name = "btnRefresh";
         btnRefresh.Size = new Size(100, 40);
         btnRefresh.TabIndex = 6;
@@ -140,7 +156,7 @@ partial class Form1
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = Color.FromArgb(30, 30, 30);
-        ClientSize = new Size(550, 430);
+        ClientSize = new Size(700, 430);
         Controls.Add(lblStatus);
         Controls.Add(btnRefresh);
         Controls.Add(btnAuto);
@@ -164,7 +180,10 @@ partial class Form1
     private Label lblTitle;
     private ListView lstSensors;
     private ColumnHeader colName;
+    private ColumnHeader colType;
     private ColumnHeader colValue;
+    private ColumnHeader colMin;
+    private ColumnHeader colMax;
     private TrackBar trackBarSpeed;
     private Label lblSpeedVal;
     private Button btnApply;
